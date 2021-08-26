@@ -1,0 +1,270 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+        "https://checkstyle.org/dtds/configuration_1_3.dtd">
+<module name="Checker">
+    <property name="severity" value="warning"/>
+    <property name="charset" value="UTF-8"/>
+    <property name="fileExtensions" value="java, properties, xml"/>
+    <module name="TreeWalker">
+        <!-- Namings -->
+        <module name="TypeName">
+            <property name="format" value="^[A-Z][a-zA-Z0-9_]*$"/>
+            <message key="name.invalidPattern" value="Type name ''{0}'' must match pattern ''{1}''."/>
+        </module>
+        <module name="MemberName">
+            <property name="format" value="^[a-z][a-z0-9][a-zA-Z0-9]*$"/>
+            <message key="name.invalidPattern" value="Member name ''{0}'' must match pattern ''{1}''."/>
+        </module>
+        <module name="ParameterName">
+            <property name="format" value="^[a-z]([a-zA-Z0-9]*)?$"/>
+            <property name="accessModifiers" value="public"/>
+            <message key="name.invalidPattern" value="Parameter name ''{0}'' must match pattern ''{1}''."/>
+        </module>
+        <module name="CatchParameterName">
+            <property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$"/>
+            <message key="name.invalidPattern" value="Catch parameter name ''{0}'' must match pattern ''{1}''."/>
+        </module>
+        <module name="LocalVariableName">
+            <property name="format" value="^[a-z]([a-zA-Z0-9]*)?$"/>
+            <message key="name.invalidPattern" value="Local variable name ''{0}'' must match pattern ''{1}''."/>
+        </module>
+        <module name="ClassTypeParameterName">
+            <property name="format" value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
+            <message key="name.invalidPattern" value="Class type name ''{0}'' must match pattern ''{1}''."/>
+        </module>
+        <module name="MethodTypeParameterName">
+            <property name="format" value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
+            <message key="name.invalidPattern" value="Method type name ''{0}'' must match pattern ''{1}''."/>
+        </module>
+        <module name="InterfaceTypeParameterName">
+            <property name="format" value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
+            <message key="name.invalidPattern" value="Interface type name ''{0}'' must match pattern ''{1}''."/>
+        </module>
+        <module name="MethodName">
+            <property name="format" value="^[a-z][a-z0-9][a-zA-Z0-9]*$"/>
+            <message key="name.invalidPattern" value="Method name ''{0}'' must match pattern ''{1}''."/>
+        </module>
+        <module name="ConstantName"/>
+        <module name="StaticVariableName"/>
+        <module name="AbstractClassName"/>
+
+        <!-- Formatting -->
+        <module name="NoLineWrap">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="EmptyBlock">
+            <property name="severity" value="info"/>
+            <property name="option" value="text"/>
+            <property name="tokens" value="LITERAL_TRY,LITERAL_FINALLY,LITERAL_IF,LITERAL_ELSE,LITERAL_SWITCH"/>
+        </module>
+        <module name="NeedBraces">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="RightCurly">
+            <property name="id" value="RightCurlySame"/>
+            <property name="tokens"
+                      value="LITERAL_IF,LITERAL_ELSE,LITERAL_DO,ANNOTATION_DEF,CLASS_DEF,METHOD_DEF,CTOR_DEF,LITERAL_FOR,LITERAL_WHILE,STATIC_INIT,INSTANCE_INIT"/>
+        </module>
+        <module name="LeftCurly">
+        </module>
+        <module name="WhitespaceAround">
+            <property name="tokens"
+                      value="ASSIGN,BAND,BAND_ASSIGN,BOR,BOR_ASSIGN,BSR,BSR_ASSIGN,BXOR,BXOR_ASSIGN,COLON,DIV,DIV_ASSIGN,DO_WHILE,EQUAL,GE,GT,LAND,LCURLY,LE,LITERAL_ASSERT,LITERAL_CATCH,LITERAL_DO,LITERAL_ELSE,LITERAL_FINALLY,LITERAL_FOR,LITERAL_IF,LITERAL_RETURN,LITERAL_SYNCHRONIZED,LITERAL_TRY,LITERAL_WHILE,LOR,LT,MINUS,MINUS_ASSIGN,MOD,MOD_ASSIGN,NOT_EQUAL,PLUS,PLUS_ASSIGN,QUESTION,RCURLY,SL,SLIST,SL_ASSIGN,SR,SR_ASSIGN,STAR,STAR_ASSIGN,TYPE_EXTENSION_AND"/>
+            <property name="allowEmptyConstructors" value="true"/>
+            <property name="allowEmptyMethods" value="true"/>
+            <property name="allowEmptyTypes" value="true"/>
+            <property name="allowEmptyLoops" value="true"/>
+            <property name="severity" value="info"/>
+        </module>
+        <module name="NoWhitespaceAfter"/>
+        <module name="NoWhitespaceBefore"/>
+        <module name="OneStatementPerLine">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="ArrayTypeStyle">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="FallThrough">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="UpperEll">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="ModifierOrder">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="EmptyLineSeparator">
+            <property name="tokens"
+                      value="PACKAGE_DEF,IMPORT,CLASS_DEF,ENUM_DEF,INTERFACE_DEF,CTOR_DEF,METHOD_DEF,STATIC_INIT,INSTANCE_INIT"/>
+            <property name="allowNoEmptyLineBetweenFields" value="true"/>
+            <property name="allowMultipleEmptyLines" value="false"/>
+            <property name="allowMultipleEmptyLinesInsideClassMembers" value="false"/>
+            <property name="severity" value="info"/>
+        </module>
+        <module name="SeparatorWrap">
+            <property name="id" value="SeparatorWrapDot"/>
+            <property name="option" value="nl"/>
+            <property name="tokens" value="DOT"/>
+        </module>
+        <module name="SeparatorWrap">
+            <property name="id" value="SeparatorWrapMethodRef"/>
+            <property name="option" value="nl"/>
+            <property name="tokens" value="METHOD_REF"/>
+        </module>
+        <module name="NoFinalizer">
+            <property name="severity" value="error"/>
+        </module>
+        <module name="GenericWhitespace">
+            <property name="severity" value="info"/>
+            <message key="ws.notPreceded" value="GenericWhitespace ''{0}'' is not preceded with whitespace."/>
+            <message key="ws.followed" value="GenericWhitespace ''{0}'' is followed by whitespace."/>
+            <message key="ws.preceded" value="GenericWhitespace ''{0}'' is preceded with whitespace."/>
+            <message key="ws.illegalFollow" value="GenericWhitespace ''{0}'' should followed by whitespace."/>
+        </module>
+        <module name="Indentation">
+            <property name="severity" value="info"/>
+            <property name="basicOffset" value="4"/>
+            <property name="caseIndent" value="4"/>
+            <property name="arrayInitIndent" value="8"/>
+            <property name="lineWrappingIndentation" value="0"/>
+        </module>
+        <module name="AbbreviationAsWordInName">
+            <property name="severity" value="info"/>
+            <property name="ignoreFinal" value="false"/>
+        </module>
+        <module name="OverloadMethodsDeclarationOrder">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="MethodParamPad">
+        </module>
+        <module name="ParenPad">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="OperatorWrap">
+            <property name="option" value="eol"/>
+            <property name="tokens"
+                      value="QUESTION,EQUAL,NOT_EQUAL,DIV,PLUS,MINUS,STAR,MOD,SR,BSR,GE,GT,SL,LE,LT,BXOR,BOR,LOR,BAND,LAND,LITERAL_INSTANCEOF,TYPE_EXTENSION_AND,ASSIGN,DIV_ASSIGN,PLUS_ASSIGN,MINUS_ASSIGN,STAR_ASSIGN,MOD_ASSIGN,METHOD_REF"/>
+        </module>
+        <module name="AnnotationLocation">
+            <property name="id" value="AnnotationLocationMostCases"/>
+            <property name="tokens" value="CLASS_DEF,INTERFACE_DEF,ENUM_DEF,METHOD_DEF,CTOR_DEF"/>
+        </module>
+        <module name="AnnotationLocation">
+            <property name="id" value="AnnotationLocationVariables"/>
+            <property name="tokens" value="VARIABLE_DEF"/>
+            <property name="allowSamelineMultipleAnnotations" value="true"/>
+        </module>
+        <module name="CommentsIndentation">
+            <property name="severity" value="info"/>
+        </module>
+
+        <module name="WhitespaceAfter">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="SingleSpaceSeparator">
+            <property name="severity" value="info"/>
+        </module>
+
+        <!-- Class structure -->
+        <module name="RedundantImport">
+            <property name="severity" value="error"/>
+        </module>
+        <module name="UnusedImports">
+            <property name="severity" value="error"/>
+        </module>
+        <module name="RedundantModifier">
+        </module>
+        <module name="AvoidNestedBlocks">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="DeclarationOrder">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="EmptyStatement">
+            <property name="severity" value="info"/>
+        </module>
+
+        <!-- Others -->
+
+        <module name="OuterTypeFilename">
+            <property name="severity" value="error"/>
+        </module>
+        <module name="IllegalTokenText">
+            <property name="tokens" value="CHAR_LITERAL,STRING_LITERAL"/>
+            <property name="format"
+                      value="\\u00(09|0(a|A)|0(c|C)|0(d|D)|22|27|5(C|c))|\\(0(10|11|12|14|15|42|47)|134)"/>
+            <property name="message"
+                      value="Consider using special escape sequence instead of octal value or Unicode escaped value."/>
+        </module>
+        <module name="AvoidEscapedUnicodeCharacters">
+            <property name="severity" value="info"/>
+            <property name="allowEscapesForControlCharacters" value="true"/>
+            <property name="allowByTailComment" value="true"/>
+            <property name="allowNonPrintableEscapes" value="true"/>
+        </module>
+        <module name="AvoidStarImport">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="TodoComment">
+            <property name="severity" value="warning"/>
+            <property name="format" value="(TODO|FIXME)"/>
+            <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
+        </module>
+        <module name="EqualsAvoidNull">
+            <property name="severity" value="error"/>
+        </module>
+        <module name="InnerAssignment">
+            <property name="severity" value="error"/>
+        </module>
+        <module name="ModifiedControlVariable">
+            <property name="severity" value="error"/>
+        </module>
+        <module name="SimplifyBooleanExpression">
+        </module>
+        <module name="SimplifyBooleanReturn">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="StringLiteralEquality">
+            <property name="severity" value="error"/>
+        </module>
+        <module name="MissingOverride">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="MissingDeprecated">
+            <property name="severity" value="info"/>
+        </module>
+        <module name="MethodLength">
+            <property name="max" value="130"/>
+            <property name="countEmpty" value="false"/>
+        </module>
+        <module name="PackageName">
+            <property name="format" value="^[a-z]+(\.[a-z][a-zA-Z0-9_]*)*$"/>
+        </module>
+        <module name="LambdaParameterName"/>
+        <module name="EmptyCatchBlock"/>
+        <module name="CovariantEquals"/>
+        <module name="DefaultComesLast"/>
+        <module name="EqualsHashCode"/>
+        <module name="ExplicitInitialization"/>
+        <module name="IllegalToken">
+            <property name="tokens" value="INSTANCE_INIT,STATIC_INIT,LABELED_STAT,LITERAL_BYTE,LITERAL_SHORT,LITERAL_TRANSIENT,LITERAL_NATIVE,LITERAL_ASSERT"/>
+        </module>
+        <module name="MissingSwitchDefault"/>
+        <module name="MultipleVariableDeclarations"/>
+        <module name="NestedTryDepth"/>
+        <module name="PackageDeclaration"/>
+        <module name="ParameterAssignment"/>
+        <module name="UnnecessaryParentheses"/>
+        <module name="VariableDeclarationUsageDistance"/>
+        <module name="VisibilityModifier"/>
+        <module name="OneTopLevelClass"/>
+        <module name="BooleanExpressionComplexity"/>
+    </module>
+    <module name="LineLength">
+        <property name="max" value="150"/>
+        <property name="tabWidth" value="4"/>
+    </module>
+    <module name="FileTabCharacter"/>
+    <module name="UniqueProperties"/>
+</module>

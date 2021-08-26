@@ -1,0 +1,30 @@
+variables:
+  MAVEN_OPTS: "-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version"
+
+image: maven:3.3.9-jdk-8
+
+test:
+  stage: test
+  script:
+    - 'mvn $MAVEN_CLI_OPTS test'
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
+
+checkstyle:
+  stage: build
+  allow_failure: true
+  script:
+    - 'mvn $MAVEN_CLI_OPTS -Pcicdprofile checkstyle:check'
+    - 'python code-quality/checkstyle-to-json.py "target/checkstyle-result.xml" "gl-code-quality-report.json"'
+  artifacts:
+    when: always
+    paths:
+      - target/checkstyle-result.xml
+      - gl-code-quality-report.json
+    reports:
+      codequality:
+        - gl-code-quality-report.json

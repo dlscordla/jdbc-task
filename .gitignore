@@ -1,0 +1,7 @@
+target/
+out/
+bin/
+.idea/
+*.iml
+*.project
+lines.sql
