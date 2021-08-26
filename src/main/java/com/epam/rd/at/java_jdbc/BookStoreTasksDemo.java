@@ -3,11 +3,12 @@ package com.epam.rd.at.java_jdbc;
 import com.epam.rd.at.java_jdbc.tasks.BookStoreTasks;
 import com.epam.rd.at.java_jdbc.tasks.ConsoleMessages;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class BookStoreTasksDemo {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         ConsoleMessages.messageWelcome();
         ConsoleMessages.messageInfo();
@@ -33,5 +34,7 @@ public class BookStoreTasksDemo {
         String soldBookName = "I, Robot";
         System.out.println("Task 7. The book " + soldBookName + " has been sold on " +
                 bookStoreTasks.getLastBookSale(soldBookName));
+
+        bookStoreTasks.close();
     }
 }
